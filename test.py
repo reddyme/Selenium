@@ -1,0 +1,25 @@
+from selenium import webdriver
+import requests,webbrowser
+browser=webdriver.Firefox()
+browser.implicitly_wait(30)
+browser.maximize_window()
+print type(browser)
+#browser.get('http://inventwithpython.com')
+#linkElm=browser.find_element_by_link_text("Read It Online")
+#linkElm.click()
+browser.get('http://www.gmail.com')
+
+browser.find_element_by_id('PlhContentWrapper_linkApply')
+
+email = browser.find_element_by_id('Email')
+email.send_keys('mahesh.sehwag@gmail.com')
+#password=browser.find_element_by_id('Passwd')
+#password.send_keys('')
+#password.submit()
+#passwd = browser.find_element_by_id('Passwd')
+#passwd.send_keys('')
+nextLink=browser.find_element_by_css_selector('.rc-button-submit').click()
+print type(nextLink)
+pswd = browser.find_element_by_id('Passwd')
+pswd.send_keys('')
+signIn=nextLink.find_element_by_css_selector('rc-button rc-button-submit').click()
